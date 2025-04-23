@@ -22,8 +22,9 @@ def main():
             user_password = input('Enter the inventory control password: ')
         if user_password == password:
             print('Correct!')
-            #go to inventory control system
+            print('\nWelcome to the ACME inventory control system')
+            print('\nPlease select an action from the following:')
     if menu_choice == '2':
         #run the retail menu
-    
+        print('2')
 main()
