@@ -1,4 +1,4 @@
-import "Chapter 10 Tean Project.py" as file
+import Chapter10TeamProject as file
 #ACME_retail_system
 #runs from chapter 10 team project.py
 def main():
