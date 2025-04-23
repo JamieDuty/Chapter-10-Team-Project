@@ -24,20 +24,51 @@ def main():
             print('Correct!')
             #go to inventory control system
     if menu_choice == '2':
-        while 1:
-            print("1 - View cart\n2 - Display items for sale\n3- Purchase item\n4 - Empty cart and start over\n5-Check out\n6 - Exit")
-            choice2 = input("Please enter a selection: ")
+        cart = file.CashRegister()
         #run the retail menu
         
-def display_cart():
-    pass
-def display_cart():
-    pass
-def purchase_time():
-    pass
-def start_over():
-    pass
+        while 1:
+            choice3 = retail_menu()
+            if choie3 == "1":
+                display_cart(cart)
+            if choie3 == "2":
+                display_items(inventory) 
+            if choie3 == "3":
+                purchase_items(cart, inventory)
+            if choie3 == "4":
+                start_over(cart)
+            if choie3 == "5":
+                check_out(cart, inventory)
+            if choie3 == "6":
+                break
+        
+        
+
+def retail_menu():
+    while 1:
+        print("1 - View cart\n2 - Display items for sale\n3- Purchase item\n4 - Empty cart and start over\n5-Check out\n6 - Exit")
+        choice2 = input("Please enter a selection: ")
+        if choice2 in ["1", "2", "3", "4", "5", "6"]:
+            return choice2
+
+def display_cart(cart):
+    cart.get_cart()
+
+def display_items(inventory):
+    if len(self.items) != 0:
+        for item in self.items:
+            print("Description:", item.get_description())
+            print("Unit(s):", item.get_units())
+            print("Price: $", item.get_price(), end = "")
     
-def check_out():
+def purchase_items(cart, inventory):
+    #resume
+    cart.purchase_item(item)
+
+
+def start_over(cart):
+    cart.empty()
+    
+def check_out(cart, inventory):
     pass
 main()

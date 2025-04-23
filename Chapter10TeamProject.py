@@ -24,9 +24,12 @@ class CashRegister:
             total += item.get_price()
         return total
     def get_cart(self):
+        if len(self.items) != 0:
         for item in self.items:
             print("Description:", item.get_description())
             print("Unit(s):", item.get_units())
             print("Price: $", item.get_price(), end = "")
+        else:
+            print("Your cart is empty.")
     def empty():
         self.items = []
