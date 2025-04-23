@@ -1,3 +1,4 @@
+import "Chapter 10 Tean Project.py" as file
 #ACME_retail_system
 #runs from chapter 10 team project.py
 def main():
@@ -23,7 +24,6 @@ def main():
             print('Correct!')
             #go to inventory control system
     if menu_choice == '2':
-        print('2')
         #run the retail menu
     
 main()
