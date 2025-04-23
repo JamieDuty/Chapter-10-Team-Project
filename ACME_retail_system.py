@@ -11,6 +11,9 @@ def main():
     #input handling here -------
     if menu_choice == 1:
         #run the inventory control menu
-
+    if menu_choice == 2:
+        #run the retail menu
+    else:
+        menu_choice = int(input("Please enter 1 or 2 only: "))
 
 main()
