@@ -9,7 +9,7 @@ def main():
     print("To access the inventory control system, press 1.")
     print("To access the retail store, press 2.")
     print('')
-    menu_choice = int(input("Enter your choice: "))
+    menu_choice = input("Enter your choice: ")
     #input handling here -------
     while menu_choice != '1' and menu_choice != '2':
         menu_choice = input("Enter 1 or 2 only: ")
@@ -25,6 +25,22 @@ def main():
             print('\nWelcome to the ACME inventory control system')
             print('\nPlease select an action from the following:')
     if menu_choice == '2':
+        while 1:
+            print("1 - View cart\n2 - Display items for sale\n3- Purchase item\n4 - Empty cart and start over\n5-Check out\n6 - Exit")
+            choice2 = input("Please enter a selection: ")
         #run the retail menu
-        print('2')
+     
+        
+def display_cart():
+    pass
+def display_cart():
+    pass
+def purchase_time():
+    pass
+def start_over():
+    pass
+    
+def check_out():
+    pass
+    
 main()
