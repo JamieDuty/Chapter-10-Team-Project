@@ -12,24 +12,24 @@ class RetailItem:      #Done by Jamie
         return self.__units
     def get_price(self): 
         return self.__price
+    def set_units(self, new_units):
+        self.units = new_units
 
 class CashRegister:
     def __init__(self):
-        self.items = []
-    def purchase_item(self, item):
-        self.items.append(item)
+        self.items = {}
+    def purchase_item(self, item, price):
+        self.items[item] = price
     def get_total(self):
         total = 0
-        for item in self.items:
-            total += item.get_price()
+        for item in self.items.keys():
+            total += items[item]
         return total
     def get_cart(self):
         if len(self.items) != 0:
-        for item in self.items:
-            print("Description:", item.get_description())
-            print("Unit(s):", item.get_units())
-            print("Price: $", item.get_price(), end = "")
+        for item in self.items.keys():
+            print(item, " <--> ", items[item], sep = "")
         else:
             print("Your cart is empty.")
     def empty():
-        self.items = []
+        self.items = {}
