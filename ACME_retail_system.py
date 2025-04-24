@@ -1,4 +1,6 @@
 import Chapter10TeamProject as file
+import os
+#INVENTORY VARIABLE IS LIST OF OBJECTS
 #ACME_retail_system
 #runs from chapter 10 team project.py
 def main():
@@ -12,16 +14,9 @@ def main():
     #input handling here -------
     while menu_choice != '1' and menu_choice != '2':
         menu_choice = input("Enter 1 or 2 only: ")
+        return menu_choice
     if menu_choice == '1':
-        #run the inventory control menu
-        #needs to search for inventory file, if not output creating
-        user_password = input("Enter the inventory control password: ")
-        while user_password != password:
-            print('Incorrect!')
-            user_password = input('Enter the inventory control password: ')
-        if user_password == password:
-            print('Correct!')
-            #go to inventory control system
+        inventory_menu()
     if menu_choice == '2':
         cart = file.CashRegister()
         #run the retail menu
@@ -54,12 +49,24 @@ def display_cart(Cart):
     Cart.get_cart()
 
 def display_items(inventory):
+<<<<<<< Updated upstream
     display_inventory
 =======
+=======
+    if len(self.items) != 0:
+        for item in self.items:
+            print("Description:", item.get_description())
+            print("Unit(s):", item.get_units())
+            print("Price: $", item.get_price(), end = "")
+>>>>>>> Stashed changes
         while 1:
             print("1 - View cart\n2 - Display items for sale\n3- Purchase item\n4 - Empty cart and start over\n5-Check out\n6 - Exit")
             choice2 = input("Please enter a selection: ")
 def inventory_menu():
+    if os.path.exists('inventorydat.txt'):
+        print('Inventory file found, opening.')
+    else:
+        print('Inventory File does not exist, creating.')  
     password = 'Password'
     #run the inventory control menu
     #needs to search for inventory file, if not output creating
@@ -77,15 +84,14 @@ def inventory_menu():
         print('\nPress 4 to exit')
         inventory_choice = input('Select an action (1, 2, or 3. Press 4 to EXIT): ')
         #needs handling
-def call_inventory_choice():
-    inventory_choice = inventory_menu()
-    while choice != 4:
+    while inventory_choice != 4:
         if inventory_choice == 1:
             display_inventory()
         elif inventory_choice == 2:
             display_inventory()
         elif inventory_choice == 3:
             display_inventory()
+<<<<<<< Updated upstream
             
 #Inventory Choices
 def display_inventory(inventory):
@@ -94,14 +100,41 @@ def display_inventory(inventory):
             print("Description:", item.get_description())
             print("Unit(s):", item.get_units())
             print("Price: $", item.get_price(), end = "")
+=======
+        elif inventory_choice == 4:
+            end()
+#Inventory Choices
+def display_inventory(inventory):
+    #display inventory needs to go into the inventory, read each line, and output it.
+    #if there is nothing there, it needs to display that
+    
+    pass
+>>>>>>> Stashed changes
 def add_to_inventory():
+    #add to inventory needs to add a description, number of units, and the price for the object TO THE LIST
+    #it then needs to ask if you want to add another one
     pass
 def write_inventory_data():
+    #write inventory data will update inventory.dat txt file with whatever is in the dictionary
+    #it will then prompt the user to go into inventory or retail system
     pass
 def end():
-    pass        
+    #end will the program.
+    print('Thanks for using the ACME Retail System.')        
 #Retail Choices
+<<<<<<< Updated upstream
 >>>>>>> 56558abfa2ce5b4d939609ea54fa61d3513de4c2
+=======
+def display_cart():
+    pass
+def display_cart(): #Choice 2
+
+    pass
+def purchase_time(): #Choice 3
+    pass
+def start_over():
+    pass
+>>>>>>> Stashed changes
     
 def purchase_items(cart, inventory):
     while 1:
