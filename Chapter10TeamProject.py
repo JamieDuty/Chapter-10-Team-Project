@@ -27,8 +27,8 @@ class CashRegister:
         return total
     def get_cart(self):
         if len(self.items.keys()) != 0:
-        for item in self.items.keys():
-            print(item, " <--> ", items[item], sep = "")
+            for item in self.items.keys():
+                print(item, " <--> ", items[item], sep = "")
         else:
             print("Your cart is empty.")
     def empty():

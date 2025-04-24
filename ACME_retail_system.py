@@ -49,19 +49,9 @@ def display_cart(Cart):
     Cart.get_cart()
 
 def display_items(inventory):
-<<<<<<< Updated upstream
     display_inventory
-=======
-=======
-    if len(self.items) != 0:
-        for item in self.items:
-            print("Description:", item.get_description())
-            print("Unit(s):", item.get_units())
-            print("Price: $", item.get_price(), end = "")
->>>>>>> Stashed changes
-        while 1:
-            print("1 - View cart\n2 - Display items for sale\n3- Purchase item\n4 - Empty cart and start over\n5-Check out\n6 - Exit")
-            choice2 = input("Please enter a selection: ")
+
+        
 def inventory_menu():
     if os.path.exists('inventorydat.txt'):
         print('Inventory file found, opening.')
@@ -91,25 +81,21 @@ def inventory_menu():
             display_inventory()
         elif inventory_choice == 3:
             display_inventory()
-<<<<<<< Updated upstream
+        elif inventory_choice == 4:
+            end()  
+
             
 #Inventory Choices
 def display_inventory(inventory):
+    #display inventory needs to go into the inventory, read each line, and output it.
+    #if there is nothing there, it needs to display that
     if len(self.items) != 0:
         for item in self.items:
             print("Description:", item.get_description())
             print("Unit(s):", item.get_units())
             print("Price: $", item.get_price(), end = "")
-=======
-        elif inventory_choice == 4:
-            end()
-#Inventory Choices
-def display_inventory(inventory):
-    #display inventory needs to go into the inventory, read each line, and output it.
-    #if there is nothing there, it needs to display that
-    
-    pass
->>>>>>> Stashed changes
+         
+
 def add_to_inventory():
     #add to inventory needs to add a description, number of units, and the price for the object TO THE LIST
     #it then needs to ask if you want to add another one
@@ -122,19 +108,6 @@ def end():
     #end will the program.
     print('Thanks for using the ACME Retail System.')        
 #Retail Choices
-<<<<<<< Updated upstream
->>>>>>> 56558abfa2ce5b4d939609ea54fa61d3513de4c2
-=======
-def display_cart():
-    pass
-def display_cart(): #Choice 2
-
-    pass
-def purchase_time(): #Choice 3
-    pass
-def start_over():
-    pass
->>>>>>> Stashed changes
     
 def purchase_items(cart, inventory):
     while 1:
@@ -143,9 +116,9 @@ def purchase_items(cart, inventory):
             item = input("What do you want to buy: ")
             for items in inventory:
                 if items.get_description().lower() == item.lower():
-                cart.purchase_item(items.get_description(), items.get_price())
-                print(f"{item} has been added to your cart!")
-                break
+                    cart.purchase_item(items.get_description(), items.get_price())
+                    print(f"{item} has been added to your cart!")
+                    break
         while 1:
             choice9 = input("Do you want to buy something else(Y, N): ")
             if choice9.lower() in ("y", "n"):
