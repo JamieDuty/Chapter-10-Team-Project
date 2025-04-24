@@ -26,16 +26,9 @@ class CashRegister:
             total += items[item]
         return total
     def get_cart(self):
-        if len(self.items) != 0:
-<<<<<<< Updated upstream
+        if len(self.items.keys()) != 0:
         for item in self.items.keys():
             print(item, " <--> ", items[item], sep = "")
-=======
-            for item in self.items:
-                print("Description:", item.get_description())
-                print("Unit(s):", item.get_units())
-                print("Price: $", item.get_price(), end = "")
->>>>>>> Stashed changes
         else:
             print("Your cart is empty.")
     def empty():
