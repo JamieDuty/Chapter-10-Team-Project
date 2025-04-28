@@ -4,6 +4,7 @@ import os
 #ACME_retail_system
 #runs from chapter 10 team project.py
 def main():
+    inventory = [] 
     #main will give the user the option to access the invetory system or retail system
     #it will then lead into the options in the inventory menu or the retail menu
     print("Please choose from the options below: ")
@@ -17,7 +18,7 @@ def main():
         menu_choice = input("Enter 1 or 2 only: ")
         return menu_choice
     if menu_choice == '1':
-        inventory_menu()
+        inventory_menu(inventory)
     if menu_choice == '2':
         cart = file.CashRegister()
         #run the retail menu
@@ -38,7 +39,6 @@ def main():
             if choie3 == "6":
                 break
         
-        
 
 def retail_menu():
     while 1:
@@ -54,7 +54,7 @@ def display_items(inventory):
     display_inventory
 
         
-def inventory_menu():
+def inventory_menu(inventory):
     if os.path.exists('inventorydat.txt'): #------> need to create the file somewhere else if it doesn't exist
         print('Inventory file found, opening.')
     else:
@@ -81,9 +81,9 @@ def inventory_menu():
     if inventory_choice == '1':
         display_inventory(inventory)
     elif inventory_choice == '2':
-        add_to_inventory()
+        add_to_inventory(inventory)
     elif inventory_choice == '3':
-        write_inventory_data()
+        write_inventory_data(inventory)
     elif inventory_choice == '4':
         end()  
             
@@ -91,26 +91,56 @@ def inventory_menu():
 def display_inventory(inventory):
     #display inventory needs to go into the inventory, read each line, and output it.
     #if there is nothing there, it needs to display that
-    if len(self.items) != 0:
+    if len(inventory) != 0:
         print("Here is the current status of your inventory: ")
-        for item in self.items:
+        for item in inventory:
             print("Description:", item.get_description())
             print("Unit(s):", item.get_units())
             print("Price: $", item.get_price(), end = "")
     else:
         print("Here is the current status of your inventory: ")
 
-def add_to_inventory():
+def add_to_inventory(inventory):
     #add to inventory needs to add a description, number of units, and the price for the object TO THE LIST
     #it then needs to ask if you want to add another one
     #needs to take input, handle, and add to a list
-    
-    pass
-def write_inventory_data():
+    #take the inputs
+    item = input("Enter an item description: ")
+    item_units = input(f"Enter the number of units for {item}: ")
+    while item_units.isdigit() == False:
+        item_units = input(f'Enter the number of units for {item}: ')
+    item_price = input(f"Enter the price per unit for {item}: ")
+    while 1:
+        try:
+            item_price = float(item_price)
+            break
+        except:
+            item_price = input(f'Enter the price per unit for {item}, (xx.xx format): ')
+
+    new_inventory_item = file.RetailItem(item, item_units, item_price)
+    inventory.append(new_inventory_item)
+    go_again = input("Enter another item? (y/n): ")
+    while go_again == 'y':
+        add_to_inventory(inventory)
+    while go_again == 'n':
+        main()
+def write_inventory_data(inventory):
     #write inventory data will update inventory.dat txt file with whatever is in the dictionary
     #it will then prompt the user to go into inventory or retail system
     #needs to take the list and upload to a file
-    pass
+        #check if file exists, if not create it
+        #upload the data
+        #output message
+        #call og main
+    inventory_file = open('inventory.txt','a')
+    for item in inventory:
+        inventory_file.write(item.get_description() + "\n")
+        inventory_file.write(item.get_units() + "\n")
+        inventory_file.write(item.get_price() + "\n")
+    print('All data written.')
+    print('\n---------------------------------------------------------------------')
+    inventory_file.close()
+    main()
   
 #Retail Choices
     
