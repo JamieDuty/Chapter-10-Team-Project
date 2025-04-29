@@ -31,5 +31,5 @@ class CashRegister:
                 print(item, " <--> ", items[item], sep = "")
         else:
             print("Your cart is empty.")
-    def empty():
+    def empty(self):
         self.items = {}
