@@ -4,8 +4,16 @@ import os
 #ACME_retail_system
 #runs from chapter 10 team project.py
 def main():
-    inventory = []
     while 1:
+        if os.path.exists('inventory.txt'): #------> need to create the file somewhere else if it doesn't exist
+            something = open("inventory.txt", "r")
+            line = something.readline().rstrip()
+            inventory = []
+            while line != "":
+                inventory.append(file.RetailItem(line, int(something.readline()), float(something.readline())))
+                line = something.readline().rstrip()
+        else:
+            inventory = []
         #main will give the user the option to access the invetory system or retail system
         #it will then lead into the options in the inventory menu or the retail menu
         print("Please choose from the options below: ")
